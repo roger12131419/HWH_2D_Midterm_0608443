@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [Header("等級")]
@@ -74,5 +74,23 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Move();
+    }
+    [Header("吃金幣音效")]
+    public AudioClip soundEat;
+    [Header("金幣數量")]
+    public Text textCoin;
+
+    private int coin;
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "金幣")
+        {
+            coin++;
+            aud.PlayOneShot(soundEat);
+            Destroy(collision.gameObject);
+            textCoin.text = "金幣:" + coin;
+            
+        }
     }
 }
