@@ -14,21 +14,29 @@ public class Player : MonoBehaviour
     public FixedJoystick joystick;
     [Header("變形物件")]
     public Transform tra;
+    [Header("偵測範圍")]
+    public float rangeAttack = 2.5f;
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = new Color(1, 0, 0, 0.4f);
+        Gizmos.DrawSphere(transform.position, rangeAttack);
+    }
+
 
     /// <summary>
     /// 移動
     /// </summary>
     private void Move()
     {
-        print("移動");
-
         float h = joystick.Horizontal;
-        print("水平:  " + h);
-
         float v = joystick.Vertical;
-        print("垂直: " + v);
+      
 
-        tra.Translate(0.1f, 0, 0);
+        tra.Translate(h * speed * Time.deltaTime, 0, 0);
+
+       
     }
 
     private void Attack()
