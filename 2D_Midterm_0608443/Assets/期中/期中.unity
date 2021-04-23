@@ -504,6 +504,7 @@ MonoBehaviour:
   cName: "\u7537\u5B69"
   joystick: {fileID: 2082335437}
   tra: {fileID: 103115288}
+  rangeAttack: 2.5
 --- !u!1001 &424574473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1265,9 +1266,9 @@ GameObject:
   - component: {fileID: 936721603}
   - component: {fileID: 936721602}
   - component: {fileID: 936721601}
-  m_Layer: 0
-  m_Name: "\u5BF6\u76F8"
-  m_TagString: Untagged
+  m_Layer: 8
+  m_Name: "\u5BF6\u7BB1"
+  m_TagString: "\u9053\u5177"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1449,7 +1450,7 @@ GameObject:
   - component: {fileID: 1150777941}
   - component: {fileID: 1150777940}
   m_Layer: 5
-  m_Name: Image
+  m_Name: "\u91D1\u5E63\u6A19\u8A8C"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2053,7 +2054,7 @@ GameObject:
   - component: {fileID: 1587896700}
   - component: {fileID: 1587896699}
   m_Layer: 5
-  m_Name: Button
+  m_Name: "\u653B\u64CA\u6309\u9215"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2076,7 +2077,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 464, y: -131}
+  m_AnchoredPosition: {x: 475, y: -243.49}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1587896699
@@ -2121,7 +2122,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1587896700}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 103115291}
+        m_MethodName: Attack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1587896700
 MonoBehaviour:
   m_ObjectHideFlags: 0
