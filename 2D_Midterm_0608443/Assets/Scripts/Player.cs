@@ -49,9 +49,9 @@ public class Player : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, rangeAttack, -transform.up, 0, 1 << 8) ;
 
-       
 
-        if (hit.collider.tag == "道具") Destroy(hit.collider.gameObject);
+
+        if (hit && hit.collider.tag == "道具") hit.collider.GetComponent<Item>().Droppro();
     }
 
 
