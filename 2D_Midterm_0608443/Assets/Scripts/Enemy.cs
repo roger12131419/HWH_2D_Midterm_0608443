@@ -64,6 +64,8 @@ public class Enemy : MonoBehaviour
     /// <summary>
     private void Track()
      {
+        if (isDead) return;
+
         // 距離 等於 三圍向量 的 距離(A 點，B點)
         float dis = Vector3.Distance(transform.position, player.position);
         if (dis <= rangeAttack)
@@ -89,7 +91,7 @@ public class Enemy : MonoBehaviour
         {
             timer = 0;
             psAttack.Play();
-            Collider2D hit = Physics2D.OverlapCircle(transform.position, rangeAttack);
+            Collider2D hit = Physics2D.OverlapCircle(transform.position, rangeAttack, 1 << 9);
             hit.GetComponent<Player>().Hit(attack);
         }
         
