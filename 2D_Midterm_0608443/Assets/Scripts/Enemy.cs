@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour
     public float hp = 200;
     [Header("血條系統")]
     public HpManager hpManager;
+    [Header("角色是否死亡")]
+    public bool isDead = false;
 
     private float hpMax;
 
@@ -93,4 +95,25 @@ public class Enemy : MonoBehaviour
         
       
     }
- }
+    /// <summary>
+    /// 受傷
+    /// </summary>
+    /// <param name="damage">接收到的傷害值</param>
+    public void Hit(float damage)
+    {
+        hp -= damage;
+        hpManager.UpdateHpBar(hp, hpMax);
+        StartCoroutine(hpManager.ShowDamage(damage));
+
+        if (hp <= 0) Dead();
+    }
+    /// <summary>
+    /// 死亡
+    /// </summary>
+    private void Dead()
+    {
+        hp = 0;
+        isDead = true;
+        Destroy(gameObject, 1.5f);
+    }
+}

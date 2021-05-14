@@ -529,6 +529,7 @@ MonoBehaviour:
   soundAttack: {fileID: 8300000, guid: d80bcd37c3fbf2147849aae79fbf95c4, type: 3}
   hp: 200
   hpManager: {fileID: 91897208}
+  attack: 20
   soundEat: {fileID: 8300000, guid: 6e09e91a5d0eeae42b6d65ad63fa8467, type: 3}
   textCoin: {fileID: 477167245}
 --- !u!82 &103115292
@@ -1194,6 +1195,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stones:
   - {fileID: 444938977}
+--- !u!114 &468352115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7815358332855717463, guid: a0af77dbff197c04380667e233502947,
+    type: 3}
+  m_PrefabInstance: {fileID: 1889047532}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dee66b96622e0e0478b4baeb608e612b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &477167243
 GameObject:
   m_ObjectHideFlags: 0
@@ -6738,9 +6751,10 @@ GameObject:
   - component: {fileID: 1278217467}
   - component: {fileID: 1278217466}
   - component: {fileID: 1278217469}
-  m_Layer: 0
+  - component: {fileID: 1278217470}
+  m_Layer: 8
   m_Name: "\u6575"
-  m_TagString: Untagged
+  m_TagString: "\u6575\u4EBA"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6848,6 +6862,25 @@ MonoBehaviour:
   psAttack: {fileID: 677501583}
   cdAttack: 1
   attack: 20
+  hp: 200
+  hpManager: {fileID: 468352115}
+  isDead: 0
+--- !u!70 &1278217470
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278217465}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.11, y: -0.22}
+  m_Size: {x: 2.82, y: 1.68}
+  m_Direction: 0
 --- !u!1 &1393737603
 GameObject:
   m_ObjectHideFlags: 0

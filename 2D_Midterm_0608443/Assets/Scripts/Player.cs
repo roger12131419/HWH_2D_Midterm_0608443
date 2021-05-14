@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public int lv = 1;
     [Header("移動速度"), Range(0, 300)]
     public float speed = 10.5f;
+    [Header("角色是否死亡")]
     public bool isDead = false;
     [Tooltip("這是角色的名稱")]
     public string cName = "男孩";
@@ -62,6 +63,7 @@ public class Player : MonoBehaviour
 
 
         if (hit && hit.collider.tag == "道具") hit.collider.GetComponent<Item>().Droppro();
+        if (hit && hit.collider.tag == "敵人") hit.collider.GetComponent<Enemy>().Hit(attack);
     }
 
     /// <summary>
