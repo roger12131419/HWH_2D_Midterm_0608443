@@ -7011,7 +7011,7 @@ MonoBehaviour:
   rangeAttack: 0.5
   speed: 2
   psAttack: {fileID: 677501583}
-  cdAttack: 3
+  cdAttack: 1
   attack: 20
 --- !u!1 &1393737603
 GameObject:

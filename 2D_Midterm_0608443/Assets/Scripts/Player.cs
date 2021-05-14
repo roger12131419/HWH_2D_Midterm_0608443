@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
     /// </summary>
     private void Move()
     {
+        if (isDead) return;
+        
         float h = joystick.Horizontal;
         float v = joystick.Vertical;
       
@@ -67,11 +69,17 @@ public class Player : MonoBehaviour
     {
         hp -= damage;
         hpManager.UpdateHpBar(hp, hpMax);
-    }
+        StartCoroutine(hpManager.ShowDamage(damage));
 
+        if (hp <= 0) Dead();
+    }
+    /// <summary>
+    /// 死亡
+    /// </summary>
     private void Dead()
     {
-
+        hp = 0;
+        isDead = true;
     }
 
     // 事件

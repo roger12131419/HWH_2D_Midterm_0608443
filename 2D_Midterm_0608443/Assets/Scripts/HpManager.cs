@@ -19,19 +19,20 @@ public class HpManager : MonoBehaviour
         bar.fillAmount = hp / hpMax;
     }
 
-    public IEnumerator ShowDamage()
+    public IEnumerator ShowDamage(float damage)
     {
        RectTransform rect = Instantiate(rectDamage, transform);
-        rect.anchoredPosition = new Vector2(0, 100);
-
+        rect.anchoredPosition = new Vector2(0, 10);
+        rect.GetComponent<Text>().text = damage.ToString();
         float y = rect.anchoredPosition.y;
 
-        while(y < 400)
+        while(y < 80)
         {
             y += 20;
             rect.anchoredPosition = new Vector2(0, y);
             yield return new WaitForSeconds(0.02f);
         }
 
+        Destroy(rect.gameObject, 0.5f);
     }
 }
