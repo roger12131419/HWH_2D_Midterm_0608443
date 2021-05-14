@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     [Header("等級")]
@@ -24,7 +25,9 @@ public class Player : MonoBehaviour
     public float hp = 200;
     [Header("血條系統")]
     public HpManager hpManager;
-
+    [Header("攻擊力"), Range(0, 1000)]
+    public float attack = 20;
+    
     private float hpMax;
 
     private void OnDrawGizmos()
@@ -80,6 +83,15 @@ public class Player : MonoBehaviour
     {
         hp = 0;
         isDead = true;
+        Invoke("Replay", 2);
+    }
+
+    /// <summary>
+    /// 重新遊戲
+    /// </summary>
+    private void Replay()
+    {
+        SceneManager.LoadScene("中");
     }
 
     // 事件
