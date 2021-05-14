@@ -78,6 +78,8 @@ public class Enemy : MonoBehaviour
         {
             timer = 0;
             psAttack.Play();
+            Collider2D hit = Physics2D.OverlapCircle(transform.position, rangeAttack);
+            hit.GetComponent<Player>().Hit(attack);
         }
         
       

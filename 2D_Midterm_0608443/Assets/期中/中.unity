@@ -623,6 +623,8 @@ MonoBehaviour:
   rangeAttack: 2
   aud: {fileID: 103115292}
   soundAttack: {fileID: 8300000, guid: d80bcd37c3fbf2147849aae79fbf95c4, type: 3}
+  hp: 200
+  hpManager: {fileID: 91897208}
   soundEat: {fileID: 8300000, guid: 6e09e91a5d0eeae42b6d65ad63fa8467, type: 3}
   textCoin: {fileID: 477167245}
 --- !u!82 &103115292
