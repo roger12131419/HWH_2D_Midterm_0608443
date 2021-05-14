@@ -5,12 +5,21 @@ public class Enemy : MonoBehaviour
     [Header("追蹤範圍"), Range(0, 500)]
     public float rangeTrack = 2;
     [Header("攻擊範圍"), Range(0, 50)]
-    public float rangeQAttack = 0.5f;
+    public float rangeAttack = 0.5f;
     [Header("移動速度"), Range(0, 50)]
     public float speed = 2;
-    
+    [Header("攻擊特效")]
+    public ParticleSystem psAttack;
+    [Header("攻擊冷卻時間"), Range(0, 10)]
+    public float cdAttack = 3;
+    [Header("攻擊力"), Range(0, 1000)]
+    public float attack = 20;
     
     private Transform player;
+    /// <summary>
+    ///  計時器
+    /// </summary>
+    private float timer;
 
     private void Start()
     {
@@ -31,7 +40,7 @@ public class Enemy : MonoBehaviour
             Gizmos.DrawSphere(transform.position, rangeTrack);
 
             Gizmos.color = new Color(1, 0, 0, 0.3f);
-            Gizmos.DrawSphere(transform.position, rangeQAttack);
+            Gizmos.DrawSphere(transform.position, rangeAttack);
     }
 
     private void Update()
@@ -46,13 +55,31 @@ public class Enemy : MonoBehaviour
      {
         // 距離 等於 三圍向量 的 距離(A 點，B點)
         float dis = Vector3.Distance(transform.position, player.position);
-        
-        if (dis <= rangeTrack)
+        if (dis <= rangeAttack)
+        {
+            Attack();
+        }
+        else if (dis <= rangeTrack)
         {
         
         transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
         }
         
+    }
+    /// <summary>
+    /// 攻擊
+    /// </summary>
+    private void Attack()
+    {
+        timer += Time.deltaTime;
+        
+        if (timer >= cdAttack)
+        {
+            timer = 0;
+            psAttack.Play();
+        }
+        
+      
     }
  }
