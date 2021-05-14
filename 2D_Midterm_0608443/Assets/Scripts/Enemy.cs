@@ -4,6 +4,8 @@ public class Enemy : MonoBehaviour
 {
     [Header("追蹤範圍"), Range(0, 500)]
     public float rangeTrack = 2;
+    [Header("攻擊範圍"), Range(0, 50)]
+    public float rangeQAttack = 0.5f;
     [Header("移動速度"), Range(0, 50)]
     public float speed = 2;
     
@@ -27,6 +29,9 @@ public class Enemy : MonoBehaviour
             Gizmos.color = new Color(0, 0, 1, 0.3f);
             // 繪製球體(中心點，半徑)
             Gizmos.DrawSphere(transform.position, rangeTrack);
+
+            Gizmos.color = new Color(1, 0, 0, 0.3f);
+            Gizmos.DrawSphere(transform.position, rangeQAttack);
     }
 
     private void Update()
@@ -44,7 +49,7 @@ public class Enemy : MonoBehaviour
         
         if (dis <= rangeTrack)
         {
-
+        
         transform.position = Vector3.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 
         }
